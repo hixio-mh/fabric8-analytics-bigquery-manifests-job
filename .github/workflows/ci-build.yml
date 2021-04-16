@@ -36,6 +36,11 @@ jobs:
         python-version: '3.6'
     - name: Run unit tests
       run: bash runtest.sh;
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v1
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+        file: ./coverage.xml
   openshift-yaml-validate:
     runs-on: ubuntu-latest
     steps:
